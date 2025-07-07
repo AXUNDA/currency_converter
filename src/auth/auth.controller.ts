@@ -11,7 +11,7 @@ import { SignUpDto } from './dto/signup.dto';
 import { LocalAuthGuard } from './guards/local.guard';
 
 import { GetCurrentUser } from './decorators/getUser.decorator';
-import { User } from 'generated/prisma';
+import { User } from '@prisma/client';
 
 @Controller('auth')
 export class AuthController {

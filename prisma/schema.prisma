@@ -19,6 +19,7 @@ model User {
   email     String    @unique
   password  String
   quotes    Quote[]
+  role      Roles     @default(USER)
   createdAt DateTime  @default(now())
   updatedAt DateTime? @updatedAt
 }
@@ -30,9 +31,13 @@ model Quote {
   currency    String
   inputAmount Int
   rate        Int
-  amount      Int
   fee         Int
-  newtAmount  Int
+  netAmount   Int
   createdAt   DateTime  @default(now())
   updatedAt   DateTime? @updatedAt
+}
+
+enum Roles {
+  USER
+  ADMIN
 }

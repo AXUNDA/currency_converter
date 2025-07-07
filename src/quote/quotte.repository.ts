@@ -9,9 +9,7 @@ export class QuoteRepository {
   async createQuote(dto: Prisma.QuoteUncheckedCreateInput) {
     return this.prisma.quote.create({ data: dto });
   }
-  async findUser(where: Prisma.UserWhereUniqueInput) {
-    return this.prisma.user.findUnique({
-      where,
-    });
+  async getQuotes() {
+    return this.prisma.quote.findMany();
   }
 }
