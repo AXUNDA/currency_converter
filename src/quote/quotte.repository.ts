@@ -10,6 +10,11 @@ export class QuoteRepository {
     return this.prisma.quote.create({ data: dto });
   }
   async getQuotes() {
-    return this.prisma.quote.findMany();
+    return await this.prisma.quote.findMany({
+      orderBy: {
+        createdAt: 'desc',
+      },
+      take: 50,
+    });
   }
 }

@@ -77,4 +77,7 @@ export class QuoteService {
 
     return amount * feeRates.Default;
   }
+  async getRecentQuotes() {
+    return await this.quoteRepository.getQuotes();
+  }
 }
