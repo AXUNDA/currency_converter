@@ -2,7 +2,7 @@
 
 - Install dependecies with `$ npm install`;
 - There is an env.example file that shows you the enviroment variables you need
-- Run migratuons with `$ npx prisma migrate dev` ;
+- Run migrations with `$ npx prisma migrate dev` ;
 - To run in dev mode use `$ npm run start:dev`;
 - To create prod build `$ npm run build`;
 - To run in prod use `$ npm run start`
