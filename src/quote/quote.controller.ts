@@ -11,7 +11,7 @@ import { Response } from 'express';
 import * as fastCsv from 'fast-csv';
 import { Throttle } from '@nestjs/throttler';
 
-@Throttle({ default: { limit: 5, ttl: 60000 } })
+@Throttle({ default: { limit: 5, ttl: 120000 } })
 @UseGuards(JwtAuthGuard)
 @Controller('quote')
 export class QuoteController {
