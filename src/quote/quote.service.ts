@@ -21,7 +21,7 @@ export class QuoteService {
   async getQuote(dto: QuoteDto, user: User) {
     try {
       const response = await this.coinGeckoService.getQuote(dto.currency);
-      // console.log(response);
+      console.log(response);
       if (!response['tether'][dto.currency.toLowerCase()]) {
         throw new BadRequestException('Invalid currency');
       }
@@ -44,6 +44,7 @@ export class QuoteService {
         netAmount: conversionAmount - fee,
       };
     } catch (error) {
+      console.log(error);
       throw new BadRequestException('An error occurred,try later');
     }
   }

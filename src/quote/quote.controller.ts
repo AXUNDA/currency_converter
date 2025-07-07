@@ -9,7 +9,9 @@ import { Roles } from 'src/auth/decorators/roles.decorator';
 import { RolesGuard } from 'src/auth/guards/roles.guard';
 import { Response } from 'express';
 import * as fastCsv from 'fast-csv';
+import { Throttle } from '@nestjs/throttler';
 
+@Throttle({ default: { limit: 5, ttl: 60000 } })
 @UseGuards(JwtAuthGuard)
 @Controller('quote')
 export class QuoteController {
