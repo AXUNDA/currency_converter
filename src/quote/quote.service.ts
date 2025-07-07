@@ -1,4 +1,9 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  HttpException,
+  HttpStatus,
+} from '@nestjs/common';
 import { CoinGeckoService } from '@app/coin-gecko';
 import { QuoteDto } from './dto/quote.dto';
 import { User } from '@prisma/client';
@@ -45,7 +50,15 @@ export class QuoteService {
       };
     } catch (error) {
       console.log(error);
-      throw new BadRequestException('An error occurred,try later');
+      throw new HttpException(
+        {
+          statusCode: 429,
+          message:
+            'You have exceeded the allowed number of requests per minute',
+          error: 'Too Many Requests',
+        },
+        HttpStatus.TOO_MANY_REQUESTS,
+      );
     }
   }
   calculateFee(amount: number, currency: string): number {
