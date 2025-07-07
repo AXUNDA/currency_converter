@@ -31,7 +31,7 @@ export class QuoteService {
       const fee = this.calculateFee(conversionAmount, dto.currency);
       await this.quoteRepository.createQuote({
         userId: user.id,
-        currency: dto.currency,
+        currency: dto.currency.toLocaleUpperCase(),
         inputAmount: dto.amount,
         rate,
         fee,
