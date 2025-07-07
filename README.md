@@ -6,6 +6,6 @@
 - To run in dev mode use `$ npm run start:dev`;
 - To create prod build `$ npm run build`;
 - To run in prod use `$ npm run start`
-- There is a rate limit of no requests per minute
+- There is a rate limit of 20 requests per minute across all routes
 
 [postman docs](https://documenter.getpostman.com/view/20589483/2sB34cq3py 'postman')
